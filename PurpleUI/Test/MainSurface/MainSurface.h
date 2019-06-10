@@ -22,7 +22,7 @@ public:
 	};
 
 	MainSurface() :
-		UISurface(20, 120, 28)
+		UISurface(6, 120, 28)
 	{}
 
 	virtual void OnCreateUI()override
@@ -40,6 +40,12 @@ public:
 	{
 		UISurface::OnEnter();
 		GetUIComponent<MainTips>()->Show(TipsUI::SHORT_LENGTH);
+	}
+
+	virtual void OnUpdate()override
+	{
+		UISurface::OnUpdate();
+		printf("Delta:%f,DeltaTime:%f", Time::GetDeltaTime() - 1.0f / GetFps(), Time::GetDeltaTime());
 	}
 };
 #endif

@@ -66,12 +66,14 @@ private:
 
 UISurface *SurfaceManager::GetActiveSurface() const
 {
-	return m_activeSurfaces.back();
+	if (!m_activeSurfaces.empty())
+		return m_activeSurfaces.back();
+	return nullptr;
 }
 float SurfaceManager::GetActiveFPS()const
 {
-	if (Empty())
-		return -1;
+	if (m_activeSurfaces.empty())
+		return INFINITY;
 	return m_activeSurfaces.back()->GetFps();
 }
 bool SurfaceManager::Empty() const
@@ -80,7 +82,8 @@ bool SurfaceManager::Empty() const
 }
 void SurfaceManager::OnUpdata()
 {
-	GetActiveSurface()->OnUpdate();
+	if (!m_activeSurfaces.empty())
+		GetActiveSurface()->OnUpdate();
 }
 void SurfaceManager::OnEvent(char input)
 {

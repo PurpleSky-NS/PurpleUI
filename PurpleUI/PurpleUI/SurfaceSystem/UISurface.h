@@ -23,57 +23,60 @@ public:
 
 	/*子类请调用这个*/
 	/*在进入界面的时候调用*/
-	virtual void OnEnter();
+	inline virtual void OnEnter();
 
 	/*子类请调用这个*/
 	/*传递一个参数的版本*/
-	virtual void OnEnter(void *data);
+	inline virtual void OnEnter(void *data);
 
 	/*在界面之上切换到另一个界面的时候调用*/
-	virtual void OnExit();
+	inline virtual void OnExit();
 
 	/*在从另一个界面返回界面时调用*/
-	virtual void OnBack();
+	inline virtual void OnBack();
 
 	/*在界面退出时调用*/
 	virtual void OnQuit() {}
 
 	/*子类请调用这个*/
 	/*在界面绘制的时候调用*/
-	virtual void OnUpdate();
+	inline virtual void OnUpdate();
 
 	/*子类请调用这个*/
 	/*在界面销毁的时候调用*/
-	virtual void OnDestroy();
+	inline virtual void OnDestroy();
 
 	/*处理事件输入*/
-	virtual void OnEvent(char input);
+	inline virtual void OnEvent(char input);
 
 	/*获取视图*/
 	inline ViewRect *GetView();
 
 	/*获取UI组件*/
 	template<class T>
-	T *GetUIComponent();
+	inline T *GetUIComponent();
 
 	/*获取UI组件*/
 	template<class T>
-	std::vector<T*> GetUIComponents();
+	inline std::vector<T*> GetUIComponents();
 
 	/*设置焦点UI，该UI会接受所有事件信息，并且有权决定是否将事件传递*/
-	void SetFocusUI(UIComponent *focusUi);
+	inline void SetFocusUI(UIComponent *focusUi);
 
 	/*获取焦点UI*/
-	UIComponent * GetFocusUI()const;
+	inline UIComponent * GetFocusUI()const;
 
 	/*强制界面重绘*/
-	void Draw();
+	inline void Draw();
 
 	/*强制界面重绘，不重绘withoutUI*/
-	void Draw(UIComponent *withoutUI);
+	inline void Draw(UIComponent *withoutUI);
 
 	/*获取帧率*/
-	unsigned char GetFps()const;
+	inline float GetFps()const;
+
+	/*设置帧率*/
+	inline void SetFps(float fps);
 
 protected:
 
@@ -105,7 +108,7 @@ private:
 		bool isMemoryDeposit;
 	};
 
-	unsigned char m_fps;//帧率
+	float m_fps;//帧率
 	ViewRect m_view;
 	std::vector<UIComponentMsg> m_uiComs;
 	UIComponent *m_focusUi = nullptr;
@@ -113,6 +116,53 @@ private:
 	/*当创建完UI时调用*/
 	void OnCreatedUI();
 };
+void UISurface::OnEnter()
+{
+	m_view.ResetSrcView();
+	for (auto &msg : m_uiComs)
+	{
+		msg.ui->OnReset();
+		if (msg.ui->IsEnable())
+			msg.ui->OnDraw();
+	}
+}
+void UISurface::OnEnter(void * data)
+{
+	OnEnter();
+}
+void UISurface::OnExit()
+{
+	for (auto &msg : m_uiComs)
+		msg.ui->OnPause();
+}
+void UISurface::OnBack()
+{
+	for (auto &msg : m_uiComs)
+		msg.ui->OnResume();
+}
+void UISurface::OnUpdate()
+{
+	system("cls");
+	for (auto &msg : m_uiComs)
+		if (msg.ui->IsEnable())
+			msg.ui->OnUpdate();
+	puts(m_view.GetViewData());
+}
+void UISurface::OnDestroy()
+{
+	for (auto &msg : m_uiComs)
+		msg.ui->OnDestroy();
+	ClearUIComponents();
+}
+void UISurface::OnEvent(char input)
+{
+	if (m_focusUi != nullptr)
+		if (!m_focusUi->OnEvent(input))
+			return;
+	for (auto &msg : m_uiComs)
+		if (msg.ui != m_focusUi && msg.ui->IsEnable())
+			msg.ui->OnEvent(input);
+}
 ViewRect *UISurface::GetView()
 {
 	return &m_view;
@@ -135,6 +185,43 @@ std::vector<T*> UISurface::GetUIComponents()
 			uis.push_back(uiMsg.ui);
 	}
 	return uis;
+}
+
+void UISurface::SetFocusUI(UIComponent *focusUi)
+{
+	if (m_focusUi != nullptr)
+	{
+		m_focusUi->m_isFocus = false;
+		m_focusUi->OnLoseFocus();
+	}
+	m_focusUi = focusUi;
+	m_focusUi->m_isFocus = true;
+	focusUi->OnGetFocus();
+}
+UIComponent *UISurface::GetFocusUI() const
+{
+	return m_focusUi;
+}
+void UISurface::Draw()
+{
+	m_view.ResetSrcView();
+	for (auto &msg : m_uiComs)
+		if (msg.ui->IsEnable())
+			msg.ui->OnDraw();
+}
+void UISurface::Draw(UIComponent *withoutUI)
+{
+	for (auto &msg : m_uiComs)
+		if (msg.ui != withoutUI && msg.ui->IsEnable())
+			msg.ui->OnDraw();
+}
+float UISurface::GetFps() const
+{
+	return m_fps;
+}
+void UISurface::SetFps(float fps)
+{
+	m_fps = fps;
 }
 #endif
 
