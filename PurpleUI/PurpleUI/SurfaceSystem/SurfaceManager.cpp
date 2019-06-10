@@ -27,7 +27,6 @@ void SurfaceManager::StartSurface(const std::string &name)
 	UISurface *surface = m_surfaces[name];
 	m_activeSurfaces.push_back(surface);
 	surface->OnEnter();
-	ResetTimer();
 }
 
 void SurfaceManager::StartSurface(const std::string & name, void *data)
@@ -37,7 +36,6 @@ void SurfaceManager::StartSurface(const std::string & name, void *data)
 	UISurface *surface = m_surfaces[name];
 	m_activeSurfaces.push_back(surface);
 	surface->OnEnter(data);
-	ResetTimer();
 }
 
 void SurfaceManager::DestroyActiveSurface()
@@ -47,29 +45,11 @@ void SurfaceManager::DestroyActiveSurface()
 	m_activeSurfaces.back()->OnQuit();
 	m_activeSurfaces.pop_back();
 	if (!m_activeSurfaces.empty())
-	{
 		m_activeSurfaces.back()->OnBack();
-		ResetTimer();
-	}
 }
 
 void SurfaceManager::RestartActiveSurface(const std::string &name)
 {
 	DestroyActiveSurface();
 	StartSurface(name);
-}
-
-void SurfaceManager::ResetTimer()
-{
-	Time::SetDeltaTime(1.0f / GetActiveSurface()->GetFps());
-	Time::s_beginDeltaTime = -1;
-	m_updateTimer.Clear();
-	m_updateTimer.SetUpadateTime(1.0f / GetActiveSurface()->GetFps());
-	m_updateTimer.AddEvent([&]()
-	{
-		Time::SetDeltaEndTime();
-		Time::SetDeltaBeginTime();
-		GetActiveSurface()->OnUpdate();
-	});
-	m_updateTimer.Run();
 }

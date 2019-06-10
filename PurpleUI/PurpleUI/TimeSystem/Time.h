@@ -14,7 +14,7 @@ public:
 	inline static float GetRunningTime();
 
 private:
-	friend class SurfaceManager;
+	friend class UIMain;
 
 	static float s_deltaTime;
 	static float s_beginDeltaTime;

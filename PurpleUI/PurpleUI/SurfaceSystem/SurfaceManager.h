@@ -34,19 +34,14 @@ public:
 	/*销毁当前活动界面，并且重启一个新的活动界面(即使当前活动界面在栈底)*/
 	void RestartActiveSurface(const std::string& name);
 
-	/*更新处于栈顶的界面，若返回false则没有活动界面，退出程序*/
-	inline bool _OnUpdata();
+	/*获取当前活动界面的FPS*/
+	inline float GetActiveFPS()const;
 
-	/*有事件*/
-	inline void _OnEvent(char input);
-
-	/*注册完成，调用界面的OnCreate*/
-	inline void _Begin();
-
-	/*程序结束，调用界面的OnDestroy*/
-	inline void _End();
+	/*活动界面是否为空*/
+	inline bool Empty()const;
 
 private:
+	friend class UIMain;
 	static SurfaceManager *s_instance;
 
 	SurfaceManager() = default;
@@ -55,34 +50,49 @@ private:
 
 	std::unordered_map<std::string, UISurface *> m_surfaces;//hash map就不实现了，太麻烦了
 	std::vector<UISurface *> m_activeSurfaces;//如果用栈有些功能不好实现
-	Timer m_updateTimer;
 
-	void ResetTimer();
+	/*更新处于栈顶的界面，若返回false则没有活动界面，退出程序*/
+	inline void OnUpdata();
 
+	/*有事件*/
+	inline void OnEvent(char input);
+
+	/*注册完成，调用界面的OnCreate*/
+	inline void Begin();
+
+	/*程序结束，调用界面的OnDestroy*/
+	inline void End();
 };
 
 UISurface *SurfaceManager::GetActiveSurface() const
 {
 	return m_activeSurfaces.back();
 }
-bool SurfaceManager::_OnUpdata()
+float SurfaceManager::GetActiveFPS()const
 {
-	if (m_activeSurfaces.empty())
-		return false;
-	m_updateTimer.Update();
-	return true;
+	if (Empty())
+		return -1;
+	return m_activeSurfaces.back()->GetFps();
 }
-void SurfaceManager::_OnEvent(char input)
+bool SurfaceManager::Empty() const
+{
+	return m_activeSurfaces.empty();
+}
+void SurfaceManager::OnUpdata()
+{
+	GetActiveSurface()->OnUpdate();
+}
+void SurfaceManager::OnEvent(char input)
 {
 	if (!m_activeSurfaces.empty())
 		m_activeSurfaces.back()->OnEvent(input);
 }
-void SurfaceManager::_Begin()
+void SurfaceManager::Begin()
 {
 	for (auto &i : m_surfaces)
 		i.second->OnCreate();
 }
-void SurfaceManager::_End()
+void SurfaceManager::End()
 {
 	for (auto &i : m_surfaces)
 	{

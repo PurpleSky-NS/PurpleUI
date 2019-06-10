@@ -4,7 +4,8 @@
 #include <cstdio>
 #include <thread>
 #include <conio.h>
-#include "Time.h"
+#include "TimeSystem/Time.h"
+#include "TimeSystem/Timer.h"
 #include "SurfaceSystem/SurfaceManager.h"
 #include "EventSystem/EventPump.h"
 
@@ -20,6 +21,8 @@ protected:
 
 	UIMain();
 
+	void _Run();
+
 	virtual void OnRegisterSurface() = 0;
 
 	/*×¢²á½çÃæ*/
@@ -30,8 +33,10 @@ protected:
 
 private:
 
-	static UIMain *s_main;
+	static UIMain *m_main;
 
-	static SurfaceManager *m_surfaceManager;
+	SurfaceManager *m_surfaceManager;
+	Timer m_updateTimer;
+
 };
 #endif
