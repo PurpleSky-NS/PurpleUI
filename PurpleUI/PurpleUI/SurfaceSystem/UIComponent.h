@@ -11,13 +11,13 @@ public:
 	inline void Enable();
 
 	inline void Disable();
+	
+	//对于disable的组件，不会调用@OnDraw,@OnUpdate与@OnEvent[除非该组件为focusUI]
+	inline bool IsEnable()const;
 
 	virtual void OnEnable() {}
 
 	virtual void OnDisable() {}
-	
-	//对于disable的组件，不会调用@OnDraw,@OnUpdate与@OnEvent[除非该组件为focusUI]
-	bool IsEnable()const { return m_isEnable; }
 
 	/*创建的时候调用,只会调用一次*/
 	virtual void OnCreate(const ViewRect &srcView) {}
@@ -57,14 +57,13 @@ public:
 	/*获取字符串靠右排布时，该字符串的起始坐标，str.size()应该<=w，w为一行的宽度*/
 	inline static int GetTextRightLayoutBeginPos(const std::string &str, int w);
 
-
 private:
 	friend class UISurface;
 	UISurface *m_context;
 	bool m_isEnable = true;
 	bool m_isFocus = false;
 };
-inline void UIComponent::Enable()
+void UIComponent::Enable()
 {
 	if (m_isEnable)
 		return;
@@ -72,12 +71,16 @@ inline void UIComponent::Enable()
 	OnEnable();
 	OnDraw();
 }
-inline void UIComponent::Disable()
+void UIComponent::Disable()
 {
 	if (!m_isEnable)
 		return;
 	m_isEnable = false;
 	OnDisable();
+}
+bool UIComponent::IsEnable() const 
+{ 
+	return m_isEnable; 
 }
 int UIComponent::GetTextCenterLayoutBeginPos(const std::string &str, int w)
 {
