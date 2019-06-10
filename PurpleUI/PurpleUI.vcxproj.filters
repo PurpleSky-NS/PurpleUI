@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\ConsoleUI System">
+      <UniqueIdentifier>{abaaa91f-c432-4e0b-872f-1ce86445eef4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ConsoleUI System\Time System">
+      <UniqueIdentifier>{c116761b-49de-4ee4-8fde-dc0232bd3b34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ConsoleUI System\Event System">
+      <UniqueIdentifier>{42a65430-8882-4603-83e2-7eba90a92622}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ConsoleUI System\Surface System">
+      <UniqueIdentifier>{7d234df5-5587-4d2b-bfa1-3017307d7990}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ConsoleUI System\Custom UI">
+      <UniqueIdentifier>{ba2edbb0-bcac-4abd-8431-6ec846c1ab6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\TestUI">
+      <UniqueIdentifier>{e0a1222a-2302-4a38-8e65-926058a7bb25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\TestUI\MainSurface">
+      <UniqueIdentifier>{e5fb3d2a-1fd0-4b20-8300-f0b1f1d34d58}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="UIMain.h">
+      <Filter>头文件\ConsoleUI System</Filter>
+    </ClInclude>
+    <ClInclude Include="EventPump.h">
+      <Filter>头文件\ConsoleUI System\Event System</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>头文件\ConsoleUI System\Time System</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>头文件\ConsoleUI System\Time System</Filter>
+    </ClInclude>
+    <ClInclude Include="SurfaceManager.h">
+      <Filter>头文件\ConsoleUI System\Surface System</Filter>
+    </ClInclude>
+    <ClInclude Include="UISurface.h">
+      <Filter>头文件\ConsoleUI System\Surface System</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewRect.h">
+      <Filter>头文件\ConsoleUI System\Surface System</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuUI.h">
+      <Filter>头文件\ConsoleUI System\Custom UI</Filter>
+    </ClInclude>
+    <ClInclude Include="TipsUI.h">
+      <Filter>头文件\ConsoleUI System\Custom UI</Filter>
+    </ClInclude>
+    <ClInclude Include="EditWindow.h">
+      <Filter>头文件\ConsoleUI System\Custom UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIComponent.h">
+      <Filter>头文件\ConsoleUI System\Surface System</Filter>
+    </ClInclude>
+    <ClInclude Include="Main.h">
+      <Filter>头文件\TestUI</Filter>
+    </ClInclude>
+    <ClInclude Include="MainSurface.h">
+      <Filter>头文件\TestUI\MainSurface</Filter>
+    </ClInclude>
+    <ClInclude Include="TestMenu.h">
+      <Filter>头文件\TestUI\MainSurface</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ViewRect.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UISurface.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SurfaceManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UIMain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="EventPump.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TipsUI.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="EditWindow.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuUI.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
