@@ -143,32 +143,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="EditWindow.h" />
-    <ClInclude Include="Main.h" />
-    <ClInclude Include="MainSurface.h" />
-    <ClInclude Include="MenuUI.h" />
-    <ClInclude Include="EventPump.h" />
-    <ClInclude Include="TestMenu.h" />
-    <ClInclude Include="Timer.h" />
-    <ClInclude Include="TipsUI.h" />
-    <ClInclude Include="UIMain.h" />
-    <ClInclude Include="SurfaceManager.h" />
-    <ClInclude Include="Time.h" />
-    <ClInclude Include="UIComponent.h" />
-    <ClInclude Include="UISurface.h" />
-    <ClInclude Include="ViewRect.h" />
+    <ClInclude Include="ConsoleUI System\CustomUI\EditWindow.h" />
+    <ClInclude Include="TestUI\Main.h" />
+    <ClInclude Include="TestUI\MainSurface\MainSurface.h" />
+    <ClInclude Include="ConsoleUI System\CustomUI\MenuUI.h" />
+    <ClInclude Include="ConsoleUI System\EventSystem\EventPump.h" />
+    <ClInclude Include="TestUI\MainSurface\TestMenu.h" />
+    <ClInclude Include="ConsoleUI System\TimeSystem\Timer.h" />
+    <ClInclude Include="ConsoleUI System\CustomUI\TipsUI.h" />
+    <ClInclude Include="ConsoleUI System\UIMain.h" />
+    <ClInclude Include="ConsoleUI System\SurfaceSystem\SurfaceManager.h" />
+    <ClInclude Include="ConsoleUI System\TimeSystem\Time.h" />
+    <ClInclude Include="ConsoleUI System\SurfaceSystem\UIComponent.h" />
+    <ClInclude Include="ConsoleUI System\SurfaceSystem\UISurface.h" />
+    <ClInclude Include="ConsoleUI System\SurfaceSystem\ViewRect.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EditWindow.cpp" />
-    <ClCompile Include="EventPump.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MenuUI.cpp" />
-    <ClCompile Include="TipsUI.cpp" />
-    <ClCompile Include="UIMain.cpp" />
-    <ClCompile Include="SurfaceManager.cpp" />
-    <ClCompile Include="Time.cpp" />
-    <ClCompile Include="UISurface.cpp" />
-    <ClCompile Include="ViewRect.cpp" />
+    <ClCompile Include="impl\EditWindow.cpp" />
+    <ClCompile Include="impl\EventPump.cpp" />
+    <ClCompile Include="impl\Main.cpp" />
+    <ClCompile Include="impl\MenuUI.cpp" />
+    <ClCompile Include="impl\TipsUI.cpp" />
+    <ClCompile Include="impl\UIMain.cpp" />
+    <ClCompile Include="impl\SurfaceManager.cpp" />
+    <ClCompile Include="impl\Time.cpp" />
+    <ClCompile Include="impl\UISurface.cpp" />
+    <ClCompile Include="impl\ViewRect.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
