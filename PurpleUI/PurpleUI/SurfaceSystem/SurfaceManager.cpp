@@ -58,3 +58,18 @@ void SurfaceManager::RestartActiveSurface(const std::string &name)
 	DestroyActiveSurface();
 	StartSurface(name);
 }
+
+void SurfaceManager::ResetTimer()
+{
+	Time::SetDeltaTime(1.0f / GetActiveSurface()->GetFps());
+	Time::s_beginDeltaTime = -1;
+	m_updateTimer.Clear();
+	m_updateTimer.SetUpadateTime(1.0f / GetActiveSurface()->GetFps());
+	m_updateTimer.AddEvent([&]()
+	{
+		Time::SetDeltaEndTime();
+		Time::SetDeltaBeginTime();
+		GetActiveSurface()->OnUpdate();
+	});
+	m_updateTimer.Run();
+}

@@ -4,8 +4,8 @@
 #include <unordered_map>
 #include <string>
 #include "UISurface.h"
-#include "Timer.h"
-#include "Time.h"
+#include "TimeSystem/Timer.h"
+#include "TimeSystem/Time.h"
 
 /*使用单例类模式管理界面*/
 class SurfaceManager
@@ -57,20 +57,8 @@ private:
 	std::vector<UISurface *> m_activeSurfaces;//如果用栈有些功能不好实现
 	Timer m_updateTimer;
 
-	void ResetTimer()
-	{
-		Time::SetDeltaTime(1.0f / GetActiveSurface()->GetFps());
-		Time::s_beginDeltaTime = -1;
-		m_updateTimer.Clear();
-		m_updateTimer.SetUpadateTime(1.0f / GetActiveSurface()->GetFps());
-		m_updateTimer.AddEvent([&]() 
-		{
-			Time::SetDeltaEndTime();
-			Time::SetDeltaBeginTime();
-			GetActiveSurface()->OnUpdate();
-		});
-		m_updateTimer.Run();
-	}
+	void ResetTimer();
+
 };
 
 UISurface *SurfaceManager::GetActiveSurface() const

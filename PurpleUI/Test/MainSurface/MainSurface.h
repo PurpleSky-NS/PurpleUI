@@ -2,8 +2,7 @@
 #define MAINSURFACE_H
 
 #include "TestMenu.h"
-#include "TipsUI.h"
-#include "UISurface.h"
+#include "CustomUI/TipsUI.h"
 
 class MainSurface : public UISurface
 {

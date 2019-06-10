@@ -36,78 +36,78 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ConsoleUI System\CustomUI\MenuUI.h">
+    <ClInclude Include="PurpleUI\CustomUI\EditWindow.h">
       <Filter>头文件\ConsoleUI System\Custom UI</Filter>
     </ClInclude>
-    <ClInclude Include="ConsoleUI System\EventSystem\EventPump.h">
+    <ClInclude Include="PurpleUI\CustomUI\MenuUI.h">
+      <Filter>头文件\ConsoleUI System\Custom UI</Filter>
+    </ClInclude>
+    <ClInclude Include="PurpleUI\CustomUI\TipsUI.h">
+      <Filter>头文件\ConsoleUI System\Custom UI</Filter>
+    </ClInclude>
+    <ClInclude Include="PurpleUI\EventSystem\EventPump.h">
       <Filter>头文件\ConsoleUI System\Event System</Filter>
     </ClInclude>
-    <ClInclude Include="ConsoleUI System\SurfaceSystem\SurfaceManager.h">
+    <ClInclude Include="PurpleUI\SurfaceSystem\SurfaceManager.h">
       <Filter>头文件\ConsoleUI System\Surface System</Filter>
     </ClInclude>
-    <ClInclude Include="ConsoleUI System\SurfaceSystem\UIComponent.h">
+    <ClInclude Include="PurpleUI\SurfaceSystem\UIComponent.h">
       <Filter>头文件\ConsoleUI System\Surface System</Filter>
     </ClInclude>
-    <ClInclude Include="ConsoleUI System\SurfaceSystem\UISurface.h">
+    <ClInclude Include="PurpleUI\SurfaceSystem\UISurface.h">
       <Filter>头文件\ConsoleUI System\Surface System</Filter>
     </ClInclude>
-    <ClInclude Include="ConsoleUI System\SurfaceSystem\ViewRect.h">
+    <ClInclude Include="PurpleUI\SurfaceSystem\ViewRect.h">
       <Filter>头文件\ConsoleUI System\Surface System</Filter>
     </ClInclude>
-    <ClInclude Include="ConsoleUI System\CustomUI\TipsUI.h">
-      <Filter>头文件\ConsoleUI System\Custom UI</Filter>
+    <ClInclude Include="PurpleUI\TimeSystem\Time.h">
+      <Filter>头文件\ConsoleUI System\Time System</Filter>
     </ClInclude>
-    <ClInclude Include="ConsoleUI System\UIMain.h">
+    <ClInclude Include="PurpleUI\TimeSystem\Timer.h">
+      <Filter>头文件\ConsoleUI System\Time System</Filter>
+    </ClInclude>
+    <ClInclude Include="PurpleUI\UIMain.h">
       <Filter>头文件\ConsoleUI System</Filter>
     </ClInclude>
-    <ClInclude Include="ConsoleUI System\TimeSystem\Time.h">
-      <Filter>头文件\ConsoleUI System\Time System</Filter>
+    <ClInclude Include="Test\MainSurface\MainSurface.h">
+      <Filter>头文件\TestUI\MainSurface</Filter>
     </ClInclude>
-    <ClInclude Include="ConsoleUI System\TimeSystem\Timer.h">
-      <Filter>头文件\ConsoleUI System\Time System</Filter>
+    <ClInclude Include="Test\MainSurface\TestMenu.h">
+      <Filter>头文件\TestUI\MainSurface</Filter>
     </ClInclude>
-    <ClInclude Include="ConsoleUI System\CustomUI\EditWindow.h">
-      <Filter>头文件\ConsoleUI System\Custom UI</Filter>
-    </ClInclude>
-    <ClInclude Include="TestUI\Main.h">
+    <ClInclude Include="Test\Main.h">
       <Filter>头文件\TestUI</Filter>
-    </ClInclude>
-    <ClInclude Include="TestUI\MainSurface\MainSurface.h">
-      <Filter>头文件\TestUI\MainSurface</Filter>
-    </ClInclude>
-    <ClInclude Include="TestUI\MainSurface\TestMenu.h">
-      <Filter>头文件\TestUI\MainSurface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="impl\EditWindow.cpp">
+    <ClCompile Include="PurpleUI\CustomUI\EditWindow.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="impl\EventPump.cpp">
+    <ClCompile Include="PurpleUI\CustomUI\TipsUI.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="impl\Main.cpp">
+    <ClCompile Include="PurpleUI\CustomUI\MenuUI.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="impl\MenuUI.cpp">
+    <ClCompile Include="PurpleUI\EventSystem\EventPump.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="impl\SurfaceManager.cpp">
+    <ClCompile Include="PurpleUI\SurfaceSystem\ViewRect.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="impl\Time.cpp">
+    <ClCompile Include="PurpleUI\SurfaceSystem\UISurface.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="impl\TipsUI.cpp">
+    <ClCompile Include="PurpleUI\SurfaceSystem\SurfaceManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="impl\UIMain.cpp">
+    <ClCompile Include="PurpleUI\UIMain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="impl\UISurface.cpp">
+    <ClCompile Include="PurpleUI\TimeSystem\Time.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="impl\ViewRect.cpp">
+    <ClCompile Include="Test\Main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -4,9 +4,8 @@
 #include <queue>
 #include <vector>
 #include <string>
-#include "SurfaceManager.h"
-#include "Timer.h"
-#include "UIComponent.h"
+#include "SurfaceSystem/SurfaceManager.h"
+#include "TimeSystem/Timer.h"
 
 /*在右下角提示的提示框UI*/
 class TipsUI :public UIComponent

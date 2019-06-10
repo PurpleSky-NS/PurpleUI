@@ -5,8 +5,8 @@
 #include <thread>
 #include <conio.h>
 #include "Time.h"
-#include "SurfaceManager.h"
-#include "EventPump.h"
+#include "SurfaceSystem/SurfaceManager.h"
+#include "EventSystem/EventPump.h"
 
 class UIMain
 {

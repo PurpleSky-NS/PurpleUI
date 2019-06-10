@@ -2,7 +2,7 @@
 #define MAIN_H
 
 #include "UIMain.h"
-#include "MainSurface.h"
+#include "MainSurface/MainSurface.h"
 
 class Main : public UIMain
 {

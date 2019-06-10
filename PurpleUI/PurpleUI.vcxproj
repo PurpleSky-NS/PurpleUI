@@ -72,12 +72,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Users\heyan\source\repos\PurpleUI\PurpleUI\Test;C:\Users\heyan\source\repos\PurpleUI\PurpleUI\PurpleUI;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Users\heyan\source\repos\PurpleUI\PurpleUI\Test;C:\Users\heyan\source\repos\PurpleUI\PurpleUI\PurpleUI;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -143,32 +145,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ConsoleUI System\CustomUI\EditWindow.h" />
-    <ClInclude Include="TestUI\Main.h" />
-    <ClInclude Include="TestUI\MainSurface\MainSurface.h" />
-    <ClInclude Include="ConsoleUI System\CustomUI\MenuUI.h" />
-    <ClInclude Include="ConsoleUI System\EventSystem\EventPump.h" />
-    <ClInclude Include="TestUI\MainSurface\TestMenu.h" />
-    <ClInclude Include="ConsoleUI System\TimeSystem\Timer.h" />
-    <ClInclude Include="ConsoleUI System\CustomUI\TipsUI.h" />
-    <ClInclude Include="ConsoleUI System\UIMain.h" />
-    <ClInclude Include="ConsoleUI System\SurfaceSystem\SurfaceManager.h" />
-    <ClInclude Include="ConsoleUI System\TimeSystem\Time.h" />
-    <ClInclude Include="ConsoleUI System\SurfaceSystem\UIComponent.h" />
-    <ClInclude Include="ConsoleUI System\SurfaceSystem\UISurface.h" />
-    <ClInclude Include="ConsoleUI System\SurfaceSystem\ViewRect.h" />
+    <ClInclude Include="PurpleUI\CustomUI\EditWindow.h" />
+    <ClInclude Include="Test\Main.h" />
+    <ClInclude Include="Test\MainSurface\MainSurface.h" />
+    <ClInclude Include="PurpleUI\CustomUI\MenuUI.h" />
+    <ClInclude Include="PurpleUI\EventSystem\EventPump.h" />
+    <ClInclude Include="Test\MainSurface\TestMenu.h" />
+    <ClInclude Include="PurpleUI\TimeSystem\Timer.h" />
+    <ClInclude Include="PurpleUI\CustomUI\TipsUI.h" />
+    <ClInclude Include="PurpleUI\UIMain.h" />
+    <ClInclude Include="PurpleUI\SurfaceSystem\SurfaceManager.h" />
+    <ClInclude Include="PurpleUI\TimeSystem\Time.h" />
+    <ClInclude Include="PurpleUI\SurfaceSystem\UIComponent.h" />
+    <ClInclude Include="PurpleUI\SurfaceSystem\UISurface.h" />
+    <ClInclude Include="PurpleUI\SurfaceSystem\ViewRect.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="impl\EditWindow.cpp" />
-    <ClCompile Include="impl\EventPump.cpp" />
-    <ClCompile Include="impl\Main.cpp" />
-    <ClCompile Include="impl\MenuUI.cpp" />
-    <ClCompile Include="impl\TipsUI.cpp" />
-    <ClCompile Include="impl\UIMain.cpp" />
-    <ClCompile Include="impl\SurfaceManager.cpp" />
-    <ClCompile Include="impl\Time.cpp" />
-    <ClCompile Include="impl\UISurface.cpp" />
-    <ClCompile Include="impl\ViewRect.cpp" />
+    <ClCompile Include="PurpleUI\CustomUI\EditWindow.cpp" />
+    <ClCompile Include="PurpleUI\EventSystem\EventPump.cpp" />
+    <ClCompile Include="Test\Main.cpp" />
+    <ClCompile Include="PurpleUI\CustomUI\MenuUI.cpp" />
+    <ClCompile Include="PurpleUI\CustomUI\TipsUI.cpp" />
+    <ClCompile Include="PurpleUI\UIMain.cpp" />
+    <ClCompile Include="PurpleUI\SurfaceSystem\SurfaceManager.cpp" />
+    <ClCompile Include="PurpleUI\TimeSystem\Time.cpp" />
+    <ClCompile Include="PurpleUI\SurfaceSystem\UISurface.cpp" />
+    <ClCompile Include="PurpleUI\SurfaceSystem\ViewRect.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

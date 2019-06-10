@@ -3,9 +3,8 @@
 
 #include <vector>
 #include <functional>
-#include "SurfaceManager.h"
-#include "Timer.h"
-#include "UIComponent.h"
+#include "SurfaceSystem/SurfaceManager.h"
+#include "TimeSystem/Timer.h"
 
 class MenuUI :public UIComponent
 {

@@ -5,8 +5,7 @@
 #include <string>
 #include <cctype>
 #include <functional>
-#include "SurfaceManager.h"
-#include "UIComponent.h"
+#include "SurfaceSystem/SurfaceManager.h"
 
 /*±à¼­´°¿ÚUI*/
 class EditWindow :public UIComponent
